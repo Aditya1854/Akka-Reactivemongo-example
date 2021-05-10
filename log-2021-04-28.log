@@ -1,0 +1,4 @@
+[34m[INFO][0;39m - [2021-04-28 09:48:36,556] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-04-28 09:48:36,723] - [reactivemongo.api.Driver]  [Supervisor-1] Creating connection: Connection-1
+[34m[INFO][0;39m - [2021-04-28 09:48:36,788] - [reactivemongo.core.actors.MongoDBSystem]  [Supervisor-1/Connection-1] Starting the MongoDBSystem
+[34m[INFO][0;39m - [2021-04-28 09:48:36,804] - [reactivemongo.core.netty.Pack]  Instantiated reactivemongo.core.netty.Pack
