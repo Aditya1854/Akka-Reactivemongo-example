@@ -10,7 +10,7 @@ import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.model.StatusCodes.BadRequest
 import models.{Student, StudentData, University, UniversityData, User, UserData}
 
-import scala.concurrent.ExecutionContextExecutor
+import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.io.StdIn
 
 
@@ -225,12 +225,12 @@ trait AkkaHttpDemo extends JwtAuthorization {
 }
 
 object Route extends App with AkkaHttpDemo {
-  val studentRepository = StudentRepository
-  val universityRepository = UniversityRepository
-  val userRepository = UserRepository
+  val studentRepository:StudentRepository = StudentRepository
+  val universityRepository : UniversityRepository = UniversityRepository
+  val userRepository :UserRepository = UserRepository
   implicit val system: ActorSystem[Nothing] = ActorSystem(Behaviors.empty, "SprayExample")
   implicit val executionContext: ExecutionContextExecutor = system.executionContext
-  val bindingFuture = Http().newServerAt("localhost", 8080).bind(route)
+  val bindingFuture : Future[Http.ServerBinding] = Http().newServerAt("localhost", 8080).bind(route)
   println(s"Server online at http://localhost:8080/\nPress RETURN to stop...")
   StdIn.readLine()
   bindingFuture

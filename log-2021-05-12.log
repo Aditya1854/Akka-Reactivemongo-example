@@ -1,0 +1,20 @@
+[34m[INFO][0;39m - [2021-05-12 00:29:19,669] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:29:22,339] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:29:22,449] - [reactivemongo.api.Driver]  [Supervisor-1] Creating connection: Connection-1
+[34m[INFO][0;39m - [2021-05-12 00:29:22,528] - [reactivemongo.core.actors.MongoDBSystem]  [Supervisor-1/Connection-1] Starting the MongoDBSystem
+[34m[INFO][0;39m - [2021-05-12 00:29:22,549] - [reactivemongo.core.netty.Pack]  Instantiated reactivemongo.core.netty.Pack
+[34m[INFO][0;39m - [2021-05-12 00:30:34,895] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:31:14,566] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:32:08,172] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:33:01,443] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:33:01,462] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:39:24,970] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:39:24,983] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:56:26,860] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:56:26,896] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:56:26,909] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:56:26,910] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:57:57,341] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:57:57,362] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:57:57,363] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started
+[34m[INFO][0;39m - [2021-05-12 00:57:57,364] - [akka.event.slf4j.Slf4jLogger]  Slf4jLogger started

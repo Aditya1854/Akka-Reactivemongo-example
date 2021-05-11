@@ -18,7 +18,7 @@ trait CorsHandle {
   )
 
   //this directive adds access control headers to normal responses
-  private def addAccessControlHeaders: Directive0 = {
+  private def addAccessControlHeaders(): Directive0 = {
     respondWithHeaders(corsResponseHeaders)
   }
 
@@ -29,7 +29,7 @@ trait CorsHandle {
   }
 
   // Wrap the Route with this method to enable adding of CORS headers
-  def corsHandler(r: Route): Route = addAccessControlHeaders {
+  def corsHandler(r: Route): Route = addAccessControlHeaders() {
     preflightRequestHandler ~ r
   }
 
