@@ -1,27 +1,19 @@
 package service
 
-import akka.actor.typed.ActorSystem
-import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Directive1
 import akka.http.scaladsl.server.Directives.{optionalHeaderValueByName, provide}
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import authentikat.jwt.{JsonWebToken, JwtClaimsSet, JwtHeader}
-import service.CorsHandle
 
-object JwtAuthorization  {
+trait JwtAuthorization {
 
   private val secretKey = "super_secret_key"
   private val header = JwtHeader("HS256")
-  private val tokenExpiryPeriod = 1
+  //  private val tokenExpiryPeriod = 1
 
-  // needed to run the route
-  implicit val system = ActorSystem(Behaviors.empty, "SprayExample")
-  // needed for the future map/flatmap in the end and future in fetchItem and saveOrder
-  implicit val executionContext = system.executionContext
-  private val cors = new CorsHandle {}
 
-  def generateToken(name:String, email: String): String = {
+  def generateToken(name: String, email: String): String = {
     val claims = JwtClaimsSet(
       Map(
         "firstName" -> name,
@@ -32,19 +24,19 @@ object JwtAuthorization  {
   }
 
   def authenticated: Directive1[Map[String, Any]] = {
+    optionalHeaderValueByName("Authorization").flatMap {
+      case Some(tokenFromUser) =>
+        val jwtToken = tokenFromUser.split(" ")
+        jwtToken(1) match {
+          case token if isTokenExpired(token) =>
+            complete(StatusCodes.Unauthorized -> "Session expired.")
 
-    optionalHeaderValueByName("Authorization").flatMap { tokenFromUser =>
+          case token if JsonWebToken.validate(token, secretKey) =>
+            provide(getClaims(token))
+          case _ => complete(StatusCodes.Unauthorized -> "Invalid Token")
+        }
 
-      val jwtToken = tokenFromUser.get.split(" ")
-      jwtToken(1) match {
-        case token if isTokenExpired(token) =>
-          complete(StatusCodes.Unauthorized -> "Session expired.")
-
-        case token if JsonWebToken.validate(token, secretKey) =>
-          provide(getClaims(token))
-
-        case _ => complete(StatusCodes.Unauthorized ->"Invalid Token")
-      }
+      case None => complete(StatusCodes.Unauthorized -> "Token missing")
     }
   }
 

@@ -1,4 +1,4 @@
-name := """MongoDB-scala-example"""
+name := """AkkaHttp-MongoDB-scala-example"""
 
 version := "1.0"
 
@@ -17,8 +17,11 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
   "com.typesafe.akka" %% "akka-http" % AkkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % AkkaHttpVersion,
-  "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.7",
   "org.json4s" %% "json4s-native" % "3.6.11",
-  "com.jason-goodwin" %% "authentikat-jwt" % "0.4.5"
+  "com.jason-goodwin" %% "authentikat-jwt" % "0.4.5",
+  "com.typesafe.akka" %% "akka-stream-testkit" % AkkaVersion,
+  "com.typesafe.akka" %% "akka-http-testkit" % AkkaHttpVersion,
+  "org.scalatest"     %% "scalatest"  % "3.1.4"  % Test,
+  "org.mockito" %% "mockito-scala" % "1.11.2" % Test
 
 )

@@ -8,17 +8,21 @@ import scala.concurrent.Future
 
 object DatabaseConf {
   val mongoUri = "mongodb://127.0.0.1:27017"
-  val driver = AsyncDriver()
-  val parsedUri = MongoConnection.fromString(mongoUri)
+  val driver: AsyncDriver = AsyncDriver()
+  val parsedUri: Future[MongoConnection.ParsedURI] = MongoConnection.fromString(mongoUri)
 
   // Database and collections: Get references
-  val futureConnection = parsedUri.flatMap(driver.connect(_))
+  val futureConnection: Future[MongoConnection] = parsedUri.flatMap(driver.connect(_))
+
   def db1: Future[DB] = futureConnection.flatMap(_.database("db1"))
 
 }
+
 object Connection {
-  def studentQuery: Future[BSONCollection]  = db1.map(_.collection("student"))
-  def universityQuery: Future[BSONCollection]  = db1.map(_.collection("university"))
-  def userQuery: Future[BSONCollection]  = db1.map(_.collection("user"))
+  def studentQuery: Future[BSONCollection] = db1.map(_.collection("student"))
+
+  def universityQuery: Future[BSONCollection] = db1.map(_.collection("university"))
+
+  def userQuery: Future[BSONCollection] = db1.map(_.collection("user"))
 }
 
